@@ -1,0 +1,110 @@
+{
+  "Template": {
+    "prefix": ["template", "\\template"],
+    "body": [
+      "\\documentclass{article}",
+      "\\usepackage[utf8]{inputenc}",
+      "\\usepackage[spanish]{babel}",
+      "\\usepackage{amsmath}",
+      "\\usepackage{amssymb}",
+      "\\usepackage{cite}",
+      "\\usepackage{graphicx}",
+      "\\usepackage{float}",
+      "\\usepackage{caption}",
+      "\\usepackage{fancyhdr}",
+      "\\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}"
+    ]
+  },
+  "Fracción": {
+    "prefix": ["frac"],
+    "body": ["\\frac{$1}{$2}"]
+  },
+  "Enviroment": {
+    "prefix": ["begin"],
+    "body": ["\\begin{${1:Enviroment}}", "  ${2}", "\\end{${1:Enviroment}}"]
+  },
+  "Figure": {
+    "prefix": ["figure"],
+    "body": [
+      "\\begin{figure}[h]",
+      "  \\begin{center}",
+      "    \\fbox{\\includegraphics[scale=0.4]{${1:Figure}}}",
+      "      \\caption{${2:Caption}}",
+      "      \\label{${3:Label}}",
+      "  \\end{center}",
+      "\\end{figure}"
+    ]
+  },
+  "Figura": {
+    "prefix": ["Figura"],
+    "body": [
+      "Figura \\ref{${3:Label}} $0",
+      "",
+      "\\begin{figure}[h]",
+      "  \\begin{center}",
+      "    \\fbox{\\includegraphics[scale=0.4]{${1:Figure}}}",
+      "      \\caption{${2:Caption}}",
+      "      \\label{${3:Label}}",
+      "  \\end{center}",
+      "\\end{figure}"
+    ]
+  },
+  "Equation": {
+    "prefix": ["equation"],
+    "body": [
+      "\\begin{equation}",
+      "  ${2:equation}",
+      "  \\label{${1:Label}}",
+      "\\end{equation}"
+    ]
+  },
+  "Picture": {
+    "prefix": ["picture"],
+    "body": [
+      "\\begin{figure}[h]",
+      "  \\begin{center}",
+      "    \\fbox{",
+      "      \\begin{tikzpicture}",
+      "        ${3:picture}",
+      "      \\end{tikzpicture}",
+      "      \\caption{${1:Caption}}",
+      "      \\label{${2:Label}}",
+      "    }",
+      "  \\end{center}",
+      "\\end{figure}"
+    ]
+  },
+  "Code": {
+    "prefix": ["coding"],
+    "body": [
+      "\\usepackage{listings}",
+      "\\usepackage{xcolor}",
+      "",
+      "\\definecolor{backcolor}{RGB}{250,250,250}",
+      "\\definecolor{keyword}{RGB}{166,38,164}",
+      "\\definecolor{numbers}{RGB}{1,132,188}",
+      "\\definecolor{string}{RGB}{80,161,79}",
+      "\\definecolor{comment}{RGB}{170,170,170}",
+      "\\definecolor{codeblack}{RGB}{15,16,17}",
+      "",
+      "\\lstdefinestyle{code}{",
+      "  backgroundcolor=\\color{backcolor},",
+      "  commentstyle=\\color{comment},",
+      "  keywordstyle=\\color{keyword},",
+      "  numberstyle=\\tiny\\color{numbers},",
+      "  stringstyle=\\color{string},",
+      "  basicstyle=\\ttfamily\\footnotesize\\color{codeblack},",
+      "  breakatwhitespace=false,",
+      "  breaklines=true,",
+      "  captionpos=b,",
+      "  keepspaces=true,",
+      "  numbers=left,",
+      "  numbersep=0.2cm,",
+      "  showspaces=false,",
+      "  showstringspaces=false,",
+      "  showtabs=false,",
+      "  tabsize=2,",
+      "}"
+    ]
+  }
+}
