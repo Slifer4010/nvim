@@ -47,6 +47,12 @@ function M.setup()
       { name = "luasnip" },
       { name = "buffer" },
       { name = "dotenv" },
+      {
+        name = "latex_symbols",
+        option = {
+          strategy = 2,
+        },
+      },
     },
     formatting = {
       format = lspkind.cmp_format({

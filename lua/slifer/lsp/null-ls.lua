@@ -15,10 +15,8 @@ M.setup = function()
         extra_args = { "-i", "2" },
       }),
       nls.builtins.formatting.latexindent.with({
-        extra_args = { "--indent-size", "2" },
+        extra_args = { "-l", "-m", "-y=~/.config/nvim/formats/latexindent.yaml" },
       }),
-
-      nls.builtins.diagnostics.eslint,
       nls.builtins.diagnostics.ruff,
     },
 

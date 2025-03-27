@@ -29,9 +29,9 @@ M.on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>fd", function()
     vim.lsp.buf.format({
       async = true,
-      filter = function(client)
-        return client.name == "null-ls" or client.name == "lua_ls"
-      end,
+      -- filter = function(client)
+      --   return client.name == "null-ls" or client.name == "lua_ls"
+      -- end,
     })
   end, opts)
 end

@@ -11,17 +11,17 @@ M.setup = function()
       "prettier",
       "black",
       "ruff",
-      "ruff_lsp",
+      "ruff-lsp",
       "basedpyright",
       "stylua",
       "shfmt",
       "beautysh",
       "jq",
       "latexindent",
-      "lua_ls",
+      "lua-language-server",
       "pyright",
       "texlab",
-      "ltex",
+      "ltex-ls",
       "bashls",
       "jsonls",
     },
@@ -59,31 +59,31 @@ M.setup = function()
     },
   })
 
-  lspconfig.ltex.setup({
-    on_attach = on_attach,
-    settings = {
-      ltex = {
-        language = "es",
-      },
-    },
-    filetypes = {
-      "bib",
-      "gitcommit",
-      "markdown",
-      "org",
-      "plaintex",
-      "rst",
-      "rnoweb",
-      "tex",
-      "pandoc",
-      "quarto",
-      "rmd",
-      "context",
-      "html",
-      "xhtml",
-      "mail",
-    },
-  })
+  -- lspconfig.ltex.setup({
+  -- 	on_attach = on_attach,
+  -- 	settings = {
+  -- 		ltex = {
+  -- 			language = "es",
+  -- 		},
+  -- 	},
+  -- 	filetypes = {
+  -- 		"bib",
+  -- 		"gitcommit",
+  -- 		"markdown",
+  -- 		"org",
+  -- 		"plaintex",
+  -- 		"rst",
+  -- 		"rnoweb",
+  -- 		"tex",
+  -- 		"pandoc",
+  -- 		"quarto",
+  -- 		"rmd",
+  -- 		"context",
+  -- 		"html",
+  -- 		"xhtml",
+  -- 		"mail",
+  -- 	},
+  -- })
 
   lspconfig.texlab.setup({
     on_attach = on_attach,
@@ -97,8 +97,8 @@ M.setup = function()
         onSave = true,
       },
       chktex = {
-        onEdit = false,
-        onOpenAndSave = false,
+        onEdit = true,
+        onOpenAndSave = true,
       },
       diagnosticsDelay = 300,
       formatterLineLength = 80,

@@ -106,5 +106,117 @@
       "  tabsize=2,",
       "}"
     ]
+  },
+
+  "MatLab code": {
+    "prefix": ["mcode"],
+    "body": [
+      "\\lstinputlisting[style=Matlab-Pyglike, frame=single, numbers=left, captionpos=b,caption={$1}, label={Cod:$2}]{$3}$4"
+    ]
+  },
+  "Tabla de verdad": {
+    "prefix": "tdv",
+    "body": [
+      "\\textbf{Tabla de verdad de:} $1  \\newline",
+      "\\textbf{Número de interpretaciones:} \\newline",
+      "\\begin{table}[H]",
+      "\\centering",
+      "\\begin{tabular}{}",
+      "\\hline",
+      "\\rowcolor{lightgray}",
+      "\\hline",
+      "\\end{tabular}",
+      "\\end{table}"
+    ]
+  },
+  "Tabla de verdad final": {
+    "prefix": "tdvf",
+    "body": [
+      "\\textbf{Tabla de verdad de:} $1  \\newline",
+      "\\textbf{Número de interpretaciones:} \\newline",
+      "\\begin{table}[H]",
+      "\\centering",
+      "\\begin{tabular}{}",
+      "\\hline",
+      "\\rowcolor{lightgray}",
+      "\\hline",
+      "\\end{tabular}",
+      "\\end{table}",
+      "\\textbf{Usando el método de substitución de equivalencias:}",
+      "\\begin{align*}",
+      "\\end{align*}",
+      "\\textbf{Respuesta:$$}"
+    ]
+  },
+  "Doble implicacion": {
+    "prefix": "bimpli",
+    "body": "\\leftrightarrow "
+  },
+  "Implicacion": {
+    "prefix": "impli",
+    "body": "\\rightarrow "
+  },
+  "Respuesta": {
+    "prefix": "tr",
+    "body": "\\text{$1} \\equiv & $2"
+  },
+  "Respuesta Formal": {
+    "prefix": "trf",
+    "body": "\\text{$1} \\equiv & $2 \\longrightarrow \\text{\\textcolor{blue}{$3}}"
+  },
+  "Premisa inicial": {
+    "prefix": "pri",
+    "body": "$1) & \\quad $2 && \\text{Premisa inicial} "
+  },
+  "Premisa inicial final": {
+    "prefix": "prif",
+    "body": ["$1) & \\quad $2 && \\text{Premisa inicial} $3", "\\cline{2-4}"]
+  },
+  "Premisa inicial subdemostracion": {
+    "prefix": "spri",
+    "body": "$1)\\quad $2 &&& \\text{Premisa inicial} $3"
+  },
+  "Premisa inicial final subdemostracion": {
+    "prefix": "sprif",
+    "body": ["$1)\\quad $2 &&& \\text{Premisa inicial} $3", "\\cline{1-4}"]
+  },
+  "Sub refutacion": {
+    "prefix": "srf",
+    "body": "\\hspace{1cm} $1) & \\quad $2 && \\text{$3} "
+  },
+  "Refutacion con sub": {
+    "prefix": "rfs",
+    "body": "$1)\\quad $2 &&& \\text{$3} "
+  },
+  "Refutacion con sub final": {
+    "prefix": "rfsf",
+    "body": [
+      "$1)\\quad $2 &&& \\text{$3} $4",
+      "$5)\\phantom{$2} &&& \\text{$6}",
+      "&&& \\text{Q.E.D.}"
+    ]
+  },
+  "Refutacion": {
+    "prefix": "rf",
+    "body": "$1) & \\quad $2 && \\text{$3} "
+  },
+  "Demostración": {
+    "prefix": "dt",
+    "body": "\\textbf{Técnica de demostración: $1} $2"
+  },
+  "Refutacion final": {
+    "prefix": "rff",
+    "body": ["$1) & \\quad $2 && \\text{$3} $4", " & && \\text{Q.E.D.}"]
+  },
+  "Consecuente negado": {
+    "prefix": "cn",
+    "body": [
+      "$1) & \\quad $2 && \\text{Negación del consecuente original} $4",
+      "\\cline{2-4}"
+    ]
+  },
+  "Align": {
+    "prefix": "align",
+    "body": ["\\begin{align*}", "$1", "\\end{align*}"]
   }
 }

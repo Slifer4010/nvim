@@ -15,8 +15,10 @@ function M.setup()
         },
       },
     },
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets" }),
   })
+  require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets" })
+  require("luasnip.loaders.from_vscode").lazy_load({ include = { "latex" } })
   vim.keymap.set({ "i", "s" }, "<C-k>", function()
     if ls.expand_or_jumpable() then
       ls.expand_or_jump()
