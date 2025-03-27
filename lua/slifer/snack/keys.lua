@@ -65,6 +65,12 @@ return {
   },
   -- git
   {
+    "<leader>gg",
+    function()
+      Snacks.lazygit()
+    end,
+  },
+  {
     "<leader>gc",
     function()
       Snacks.picker.git_log()

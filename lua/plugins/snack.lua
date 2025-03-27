@@ -9,6 +9,7 @@ return {
     picker = { enabled = true, layout = "telescope" },
     statuscolumn = { enabled = true },
     scroll = { enabled = true },
+    lazygit = { enabled = true },
     indent = {
       enabled = true,
       animate = {
@@ -20,7 +21,7 @@ return {
     },
     dashboard = require("slifer.snack.dashboard").setup(),
     terminal = {
-      win = { style = "terminal", height = 0.3 },
+      win = { style = "terminal" },
     },
   },
   keys = function()

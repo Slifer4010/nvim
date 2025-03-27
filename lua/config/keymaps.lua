@@ -13,16 +13,16 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true, desc = "Next bu
 vim.keymap.set("n", "<leader>ee", ":Explore<CR>", { silent = true, desc = "Open Explore" })
 
 vim.keymap.set(
-  "n",
-  "n",
-  "nzzzv",
-  { silent = true, desc = "Goes to the next result on the seach and put the cursor in the middle" }
+	"n",
+	"n",
+	"nzzzv",
+	{ silent = true, desc = "Goes to the next result on the seach and put the cursor in the middle" }
 )
 vim.keymap.set(
-  "n",
-  "N",
-  "Nzzzv",
-  { silent = true, desc = "Goes to the prev result on the seach and put the cursor in the middle" }
+	"n",
+	"N",
+	"Nzzzv",
+	{ silent = true, desc = "Goes to the prev result on the seach and put the cursor in the middle" }
 )
 
 vim.keymap.set("v", ">", ">gv", { silent = true, desc = "After tab in re-select the same" })
@@ -37,10 +37,10 @@ vim.keymap.set({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]])
 
 -- Delete all buffers but the current one
 vim.keymap.set(
-  "n",
-  "<leader>bq",
-  '<Esc>:%bdelete|edit #|normal`"<Return>',
-  { desc = "Delete other buffers but the current one" }
+	"n",
+	"<leader>bq",
+	'<Esc>:%bdelete|edit #|normal`"<Return>',
+	{ desc = "Delete other buffers but the current one" }
 )
 
 -- Move to window using the <ctrl> keys
