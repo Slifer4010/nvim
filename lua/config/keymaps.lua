@@ -13,16 +13,16 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true, desc = "Next bu
 vim.keymap.set("n", "<leader>ee", ":Explore<CR>", { silent = true, desc = "Open Explore" })
 
 vim.keymap.set(
-	"n",
-	"n",
-	"nzzzv",
-	{ silent = true, desc = "Goes to the next result on the seach and put the cursor in the middle" }
+  "n",
+  "n",
+  "nzzzv",
+  { silent = true, desc = "Goes to the next result on the seach and put the cursor in the middle" }
 )
 vim.keymap.set(
-	"n",
-	"N",
-	"Nzzzv",
-	{ silent = true, desc = "Goes to the prev result on the seach and put the cursor in the middle" }
+  "n",
+  "N",
+  "Nzzzv",
+  { silent = true, desc = "Goes to the prev result on the seach and put the cursor in the middle" }
 )
 
 vim.keymap.set("v", ">", ">gv", { silent = true, desc = "After tab in re-select the same" })
@@ -37,13 +37,13 @@ vim.keymap.set({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]])
 
 -- Delete all buffers but the current one
 vim.keymap.set(
-	"n",
-	"<leader>bq",
-	'<Esc>:%bdelete|edit #|normal`"<Return>',
-	{ desc = "Delete other buffers but the current one" }
+  "n",
+  "<leader>bq",
+  '<Esc>:%bdelete|edit #|normal`"<Return>',
+  { desc = "Delete other buffers but the current one" }
 )
 
--- Move to window using the <ctrl> keys
+-- Move to window using the <alt> keys
 vim.keymap.set("n", "<A-left>", "<C-w>h", { desc = "Go to left window" })
 vim.keymap.set("n", "<A-down>", "<C-w>j", { desc = "Go to lower window" })
 vim.keymap.set("n", "<A-up>", "<C-w>k", { desc = "Go to upper window" })
@@ -72,6 +72,10 @@ vim.keymap.set("n", "<leader>wh", "<C-W>s", { desc = "Split window below", remap
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split window right", remap = true })
 
 -- Latex keymaps
+
+--Enable/Disable ltex
+vim.keymap.set("n", "<leader>dt", ":lua require('config.utils').toggle_ltex()<cr>", { remap = true, silent = true })
+
 -- Toggle the auto-processing with VimTex
 vim.keymap.set("n", "<leader>vc", ":VimtexCompile<cr>", { silent = true })
 -- Clean with VimTex

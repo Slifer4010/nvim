@@ -14,9 +14,9 @@ M.setup = function()
       nls.builtins.formatting.beautysh.with({
         extra_args = { "-i", "2" },
       }),
-      nls.builtins.formatting.latexindent.with({
-        extra_args = { "-l", "-m", "-y=~/.config/nvim/formats/latexindent.yaml" },
-      }),
+      nls.builtins.formatting.latexindent, --.with({
+      -- extra_args = { "-l" },
+      -- }),
       nls.builtins.diagnostics.ruff,
     },
 

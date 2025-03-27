@@ -59,31 +59,31 @@ M.setup = function()
     },
   })
 
-  -- lspconfig.ltex.setup({
-  -- 	on_attach = on_attach,
-  -- 	settings = {
-  -- 		ltex = {
-  -- 			language = "es",
-  -- 		},
-  -- 	},
-  -- 	filetypes = {
-  -- 		"bib",
-  -- 		"gitcommit",
-  -- 		"markdown",
-  -- 		"org",
-  -- 		"plaintex",
-  -- 		"rst",
-  -- 		"rnoweb",
-  -- 		"tex",
-  -- 		"pandoc",
-  -- 		"quarto",
-  -- 		"rmd",
-  -- 		"context",
-  -- 		"html",
-  -- 		"xhtml",
-  -- 		"mail",
-  -- 	},
-  -- })
+  lspconfig.ltex.setup({
+    on_attach = on_attach,
+    settings = {
+      ltex = {
+        language = "es",
+      },
+    },
+    filetypes = {
+      "bib",
+      "gitcommit",
+      "markdown",
+      "org",
+      "plaintex",
+      "rst",
+      "rnoweb",
+      "tex",
+      "pandoc",
+      "quarto",
+      "rmd",
+      "context",
+      "html",
+      "xhtml",
+      "mail",
+    },
+  })
 
   lspconfig.texlab.setup({
     on_attach = on_attach,

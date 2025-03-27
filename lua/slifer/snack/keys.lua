@@ -61,7 +61,7 @@ return {
         },
       })
     end,
-    desc = "Spell Suggest",
+    desc = "Find Projects",
   },
   -- git
   {
@@ -69,6 +69,7 @@ return {
     function()
       Snacks.lazygit()
     end,
+    desc = "Lazygit",
   },
   {
     "<leader>gc",
