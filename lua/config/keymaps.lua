@@ -82,3 +82,5 @@ vim.keymap.set("n", "<leader>vc", ":VimtexCompile<cr>", { silent = true })
 vim.keymap.set("n", "<leader>vd", ":VimtexClean<cr>", { silent = true })
 -- Search direct with Vimtex
 vim.keymap.set("n", "<leader>vv", ":VimtexView<cr>", { silent = true })
+-- Errors with Vimtex
+vim.keymap.set("n", "<leader>ve", ":VimtexErrors<cr>", { silent = true })

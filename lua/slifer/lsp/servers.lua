@@ -74,7 +74,6 @@ M.setup = function()
       "plaintex",
       "rst",
       "rnoweb",
-      "tex",
       "pandoc",
       "quarto",
       "rmd",
