@@ -1,8 +1,6 @@
 local M = {}
 
 M.setup = function()
-  local keymaps = require("slifer.lsp.keymaps")
-  local on_attach = keymaps.on_attach
   local lspconfig = require("lspconfig")
 
   require("neodev").setup()
@@ -29,7 +27,6 @@ M.setup = function()
   })
 
   lspconfig.lua_ls.setup({
-    on_attach = on_attach,
     settings = {
       Lua = {
         telemetry = { enable = false },
@@ -39,7 +36,6 @@ M.setup = function()
   })
 
   lspconfig.pyright.setup({
-    on_attach = on_attach,
     settings = {
       python = {
         analysis = {
@@ -60,7 +56,6 @@ M.setup = function()
   })
 
   lspconfig.ltex.setup({
-    on_attach = on_attach,
     settings = {
       ltex = {
         language = "es",
@@ -85,7 +80,6 @@ M.setup = function()
   })
 
   lspconfig.texlab.setup({
-    on_attach = on_attach,
     texlab = {
       auxDirectory = "aux",
       bibtexFormatter = "texlab",

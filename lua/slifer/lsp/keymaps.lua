@@ -1,39 +1,52 @@
-local M = {}
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+  callback = function(event)
+    local map = function(keys, func, desc)
+      vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+    end
 
-M.setup = function()
-  vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
-end
+    map("gd", require("snacks").picker.lsp_definitions, "[G]oto [D]efinition")
+    map("gr", require("snacks").picker.lsp_references, "[G]oto [R]eferences")
+    map("gi", require("snacks").picker.lsp_implementations, "[G]oto [I]mplementation")
+    map("<leader>D", require("snacks").picker.lsp_type_definitions, "Type [D]efinition")
+    map("<leader>ds", require("snacks").picker.lsp_symbols, "[D]ocument [S]ymbols")
+    map("<leader>ws", require("snacks").picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+    map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+    map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+    map("K", function()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end, "Hover Documentation")
+    map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+    map("<leader>fd", vim.lsp.buf.format, "[F]ormat the document")
 
-M.on_attach = function(_, bufnr)
-  local opts = { buffer = bufnr }
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client and client.server_capabilities.documentHighlightProvider then
+      local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.document_highlight,
+      })
 
-  vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.clear_references,
+      })
 
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-  vim.keymap.set("n", "<C-p>", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-  vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-  vim.keymap.set("n", "<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, opts)
-  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>fd", function()
-    vim.lsp.buf.format({
-      async = true,
-      -- filter = function(client)
-      --   return client.name == "null-ls" or client.name == "lua_ls"
-      -- end,
-    })
-  end, opts)
-end
+      vim.api.nvim_create_autocmd("LspDetach", {
+        group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+        callback = function(event2)
+          vim.lsp.buf.clear_references()
+          vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+        end,
+      })
+    end
 
-return M
+    if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+      map("<leader>th", function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end, "[T]oggle Inlay [H]ints")
+    end
+  end,
+})

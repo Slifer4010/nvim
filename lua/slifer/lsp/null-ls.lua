@@ -12,11 +12,9 @@ M.setup = function()
         extra_args = { "-i", "2" },
       }),
       nls.builtins.formatting.beautysh.with({
-        extra_args = { "-i", "2" },
+        extra_args = { "-" },
       }),
-      nls.builtins.formatting.latexindent, --.with({
-      -- extra_args = { "-l" },
-      -- }),
+      nls.builtins.formatting.latexindent,
       nls.builtins.diagnostics.ruff,
     },
 
