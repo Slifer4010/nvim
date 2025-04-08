@@ -10,7 +10,6 @@
 vim.keymap.set("n", "<leader>rr", ":source %<CR>", { silent = true, desc = "Source de current file" })
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { silent = true, desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "<leader>ee", ":Explore<CR>", { silent = true, desc = "Open Explore" })
 
 vim.keymap.set(
   "n",
