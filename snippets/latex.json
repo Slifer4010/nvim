@@ -215,8 +215,48 @@
       "\\cline{2-4}"
     ]
   },
+  "Relacion": {
+    "prefix": "rel",
+    "body": "R=\\\\{(x,y)| $1 \\\\}"
+  },
+  "Relacion conjunto": {
+    "prefix": "relc",
+    "body": "R=\\\\{($1),$2 \\\\}"
+  },
+  "Conjunto": {
+    "prefix": "conj",
+    "body": "($1),"
+  },
+  "Conectar": {
+    "prefix": "conec",
+    "body": "\\draw ($1) -- ($2);"
+  },
   "Align": {
     "prefix": "align",
     "body": ["\\begin{align*}", "$1", "\\end{align*}"]
+  },
+  "Digrafo": {
+    "prefix": "grafo",
+    "body": [
+      "\\begin{figure}[ht]",
+      "\\centering",
+      "\\tikzset{smallstate/.style={state, inner sep=1pt, minimum size=6mm}}",
+      "\\begin{tikzpicture}[->,>=stealth', shorten >=1pt, auto, node distance=4cm,]",
+      "$1",
+      "\\end{tikzpicture}",
+      "\\end{figure}"
+    ]
+  },
+  "Nodo": {
+    "prefix": "nodo",
+    "body": ["\\node[smallstate] ($1) {$2};"]
+  },
+  "Nodo abajo": {
+    "prefix": "nodoabajo",
+    "body": ["\\node[smallstate, below=0.5cm of $1] ($2) {$3};"]
+  },
+  "Nodo derecho": {
+    "prefix": "nododerecho",
+    "body": ["\\node[smallstate, right=of $1] ($2) {$3};"]
   }
 }

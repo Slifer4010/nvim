@@ -1,0 +1,7 @@
+{
+  "Prueba": {
+    "prefix": "prueba",
+    "body": ["print('hola')"],
+    "description": "Prueba"
+  }
+}
