@@ -19,6 +19,10 @@
     "prefix": ["frac"],
     "body": ["\\frac{$1}{$2}"]
   },
+  "Item": {
+    "prefix": ["item"],
+    "body": ["\\item $1"]
+  },
   "Enviroment": {
     "prefix": ["begin"],
     "body": ["\\begin{${1:Enviroment}}", "  ${2}", "\\end{${1:Enviroment}}"]
@@ -221,7 +225,7 @@
   },
   "Relacion conjunto": {
     "prefix": "relc",
-    "body": "R=\\\\{($1),$2 \\\\}"
+    "body": "$1=\\\\{($2),$3 \\\\}"
   },
   "Conjunto": {
     "prefix": "conj",

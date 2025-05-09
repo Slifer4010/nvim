@@ -20,7 +20,7 @@ M.setup = function()
       "pyright",
       "texlab",
       "ltex-ls",
-      "bashls",
+      "bash-language-server",
       "jsonls",
     },
     automatic_installation = true,
@@ -46,6 +46,16 @@ M.setup = function()
       },
     },
   })
+
+  lspconfig.bashls.setup({
+    filetypes = { "bash", "sh" },
+    settings = {
+      bashIde = {
+        globPattern = "*@(.sh|.inc|.bash|.command)",
+      },
+    },
+  })
+
   lspconfig.ruff.setup({
     cmd_env = { RUFF_TRACE = "messages" },
     init_options = {
