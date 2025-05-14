@@ -18,6 +18,7 @@ require("lazy").setup({
   spec = {
     { import = "core.completion" },
     { import = "custom.plugins" },
+    { import = "custom.plugins.languages" },
   },
   default = {
     lazy = true,

@@ -43,6 +43,17 @@ vim.keymap.set(
 	{ desc = "Delete other buffers but the current one" }
 )
 
+-- windows
+vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+vim.keymap.set("n", "<leader>wh", "<C-W>s", { desc = "Split window below", remap = true })
+vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- Move to window using the <alt> keys
+vim.keymap.set("n", "<A-left>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set("n", "<A-down>", "<C-w>j", { desc = "Go to lower window" })
+vim.keymap.set("n", "<A-up>", "<C-w>k", { desc = "Go to upper window" })
+vim.keymap.set("n", "<A-right>", "<C-w>l", { desc = "Go to right window" })
+
 -- Move Lines
 vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { silent = true, desc = "Move down" })
 vim.keymap.set("n", "<A-k>", ":m .-2<cr>==", { silent = true, desc = "Move up" })
