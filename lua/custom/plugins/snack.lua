@@ -72,7 +72,7 @@ return {
         map("<leader>bd", function() Snacks.bufdelete() end, "Delete buffer")
         map("<leader>rf", function() Snacks.rename.rename_file() end, "Rename file")
         map("<leader>sd", function() Snacks.picker.diagnostics() end, "Find Diagnostics")
-        map("<leader>tt", function() Snacks.terminal.toggle() end, "Toggle terminal", { "n", "t" })
+        map("<C-t>", function() Snacks.terminal.toggle() end, "Toggle terminal", { "n", "t" })
         map("<leader>zz", function() Snacks.picker.spelling({
           layout = {
             preset = "telescope"

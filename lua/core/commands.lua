@@ -1,0 +1,5 @@
+vim.api.nvim_create_user_command("ReloadSnippets", function()
+	require("luasnip.loaders.from_vscode").lazy_load()
+	require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets" })
+	print("Snippets recargados")
+end, {})

@@ -50,7 +50,7 @@ local function buf_cancel_build(client, bufnr)
       command = 'texlab.cancelBuild',
     }, { bufnr = bufnr })
   end
-  vim.lsp.buf.execute_command { command = 'texlab.cancelBuild' }
+  client:exec_cmd { command = 'texlab.cancelBuild' }
   vim.notify('Build cancelled', vim.log.levels.INFO)
 end
 
@@ -84,7 +84,7 @@ local function command_factory(cmd)
       end)
     end
 
-    vim.lsp.buf.execute_command {
+    client:exec_cmd {
       command = cmd_tbl[cmd],
       arguments = { { uri = vim.uri_from_bufnr(bufnr) } },
     }
@@ -141,7 +141,7 @@ local function buf_change_env(client, bufnr)
     }, { bufnr = bufnr })
   end
 
-  vim.lsp.buf.execute_command {
+  client:exec_cmd {
     command = 'texlab.changeEnvironment',
     arguments = {
       {
@@ -154,37 +154,35 @@ local function buf_change_env(client, bufnr)
 end
 
 return {
-  cmd = { 'texlab' },
-  filetypes = { 'tex', 'plaintex', 'bib' },
-  root_markers = { '.git', '.latexmkrc', 'latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml' },
-  settings = {
-    texlab = {
-      rootDirectory = nil,
+	cmd =  "texlab" ,
+	filetype = { "tex", "plaintex", "bib" },
+	root_makers = { ".git", ".latexmkrc", "latexmkrc", ".texlabroot", "texlabroot", "Tectonic.toml" },
+	settings = {
+		texlab = {
       auxDirectory = "aux",
-      build = {
-        executable = 'latexmk',
-        args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
-        onSave = false,
-        forwardSearchAfter = true,
-      },
-      forwardSearch = {
-        executable = {"okular"},
-        args = {"--unique", "%f#src:%l%p"},
-      },
-      chktex = {
-        onOpenAndSave = true,
-        onEdit = true,
-      },
-      diagnosticsDelay = 300,
-      latexFormatter = 'latexindent',
-      latexindent = {
-        ['local'] = nil, -- local is a reserved keyword
-        modifyLineBreaks = false,
-      },
-      bibtexFormatter = 'texlab',
-      formatterLineLength = 80,
-    },
-  },
+			bibtexFormatter = "texlab",
+			build = {
+				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+				executable = "latexmk",
+				forwardSearchAfter = true,
+				onSave = true,
+			},
+			chktex = {
+				onEdit = false,
+				onOpenAndSave = false,
+			},
+			diagnosticsDelay = 300,
+			formatterLineLength = 80,
+			forwardSearch = {
+        executable = { "okular" },
+        args = { "--unique", "%f#src:%l%p" },
+			},
+			latexFormatter = "latexindent",
+			latexindent = {
+				modifyLineBreaks = false,
+			},
+		},
+	},
   on_attach = function()
     vim.api.nvim_buf_create_user_command(0, 'LspTexlabBuild', client_with_fn(buf_build), {
       desc = 'Build the current buffer',
