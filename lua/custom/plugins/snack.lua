@@ -7,10 +7,10 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     indent = { enabled = true },
-    input = { enabled = true },
+    input = { enabled = true, style = "input" },
     image = { enabled = true },
     picker = { enabled = true },
-    notifier = { enabled = true },
+    notifier = { enabled = true, style = "compact" },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
@@ -72,7 +72,7 @@ return {
         map("<leader>bd", function() Snacks.bufdelete() end, "Delete buffer")
         map("<leader>rf", function() Snacks.rename.rename_file() end, "Rename file")
         map("<leader>sd", function() Snacks.picker.diagnostics() end, "Find Diagnostics")
-        map("<A-h>", function() Snacks.terminal.toggle() end, "Toggle terminal", { "n", "t" })
+        map("<leader>tt", function() Snacks.terminal.toggle() end, "Toggle terminal", { "n", "t" })
         map("<leader>zz", function() Snacks.picker.spelling({
           layout = {
             preset = "telescope"
