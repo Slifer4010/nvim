@@ -5,7 +5,6 @@ return {
 		lazy = true,
 		opts = {},
 	},
-
 	{
 		"saghen/blink.cmp",
 		dependencies = {
@@ -20,6 +19,9 @@ return {
 				end,
 			},
 			{ "echasnovski/mini.icons", opts = {} },
+			{
+				"Exafunction/codeium.nvim",
+			},
 		},
 
 		version = "1.*",
@@ -40,8 +42,8 @@ return {
 				enabled = true,
 				trigger = {
 					enabled = false,
+				},
 			},
-      },
 
 			snippets = {
 				preset = "luasnip",
@@ -53,7 +55,10 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "codeium" },
+				providers = {
+					codeium = { name = "Codeium", module = "codeium.blink", async = true },
+				},
 			},
 
 			-- (Default) Only show the documentation popup when manually triggered
