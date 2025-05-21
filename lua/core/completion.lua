@@ -8,7 +8,7 @@ return {
 	{
 		"saghen/blink.cmp",
 		dependencies = {
-			"rafamadriz/friendly-snippets",
+			{ "rafamadriz/friendly-snippets" },
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
@@ -22,6 +22,7 @@ return {
 			{
 				"Exafunction/codeium.nvim",
 			},
+			{ "erooke/blink-cmp-latex" },
 		},
 
 		version = "1.*",
@@ -55,9 +56,16 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "codeium" },
+				default = { "lsp", "path", "snippets", "buffer", "codeium", "latex" },
 				providers = {
 					codeium = { name = "Codeium", module = "codeium.blink", async = true },
+					latex = {
+						name = "Latex",
+						module = "blink-cmp-latex",
+						opts = {
+							insert_command = true,
+						},
+					},
 				},
 			},
 

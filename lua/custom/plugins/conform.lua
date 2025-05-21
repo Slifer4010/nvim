@@ -1,6 +1,7 @@
 local formatters = {
 	lua = { "stylua", lsp_format = "fallback" },
 	json = { "jq" },
+  python = { "black" }
 }
 return {
 	"stevearc/conform.nvim",
