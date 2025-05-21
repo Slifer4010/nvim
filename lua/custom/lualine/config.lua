@@ -26,20 +26,18 @@ require("lualine").setup({
 		},
 		lualine_y = {
 			{
-				utils.lsp_progress,
-				cond = function()
-					return utils.lsp_progress_text ~= ""
+				function()
+					return utils.get_venv_name()
 				end,
 				separator = { left = "", right = "" },
 			},
 			{
 				"filetype",
-				separator = { left = "", right = "" },
 				cond = function()
-					return utils.lsp_progress_text == ""
+					return not utils.has_venv()
 				end,
+				separator = { left = "", right = "" },
 			},
-			{ utils.empty },
 		},
 		lualine_z = { { "progress", icon = " " } },
 	},

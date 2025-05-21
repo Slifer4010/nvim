@@ -1,36 +1,5 @@
 local M = {}
 
-M.lsp_progress_text = ""
-
-local spinner_frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-
-vim.api.nvim_create_autocmd("LspProgress", {
-	callback = function(args)
-		local msg = args.data.params.value.title or ""
-		if msg:match("Loading workspace") then
-			msg = "Loading"
-		end
-		local client_id = args.data.client_id
-		local client = vim.lsp.get_client_by_id(client_id)
-		if client then
-			Lsp_name = " " .. client.name
-		end
-
-		if args.data.params.value.kind == "end" then
-			M.lsp_progress_text = Lsp_name
-		else
-			local spinner = spinner_frames[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner_frames + 1]
-			M.lsp_progress_text = string.format("%s %s", spinner, msg)
-		end
-
-		vim.cmd("redrawstatus")
-	end,
-})
-
-M.lsp_progress = function()
-	return M.lsp_progress_text
-end
-
 M.empty = require("lualine.component"):extend()
 
 function M.empty:draw(default_highlight)
@@ -52,6 +21,19 @@ function M.empty:draw(default_highlight)
 	self:apply_highlights(default_highlight)
 	self:apply_section_separators()
 	return self.status
+end
+
+function M.get_venv_name()
+  local venv = os.getenv("VIRTUAL_ENV") or vim.g.python3_host_prog
+  if venv then
+    local parts = vim.split(venv, "/")
+    return "󰌠 " .. parts[#parts - 1]
+  end
+  return ""
+end
+
+function M.has_venv()
+  return os.getenv("VIRTUAL_ENV") or vim.g.python3_host_prog
 end
 
 return M
