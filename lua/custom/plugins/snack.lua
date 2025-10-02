@@ -15,7 +15,7 @@ return {
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
-    terminal = { win = { style = "float" }, },
+    terminal = { win = { style = "terminal" }, },
     toggle = { enabled = true },
     words = { enabled = true },
   },
