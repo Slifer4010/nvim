@@ -52,6 +52,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.config('html', {
+  capabilities = capabilities,
+})
+vim.lsp.config('cssls', {
+  capabilities = capabilities,
+})
+
 vim.lsp.config("*", {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
@@ -62,3 +73,6 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
 vim.lsp.enable("ltex")
 vim.lsp.enable("texlab")
+vim.lsp.enable("astro")
+vim.lsp.enable("cssls")
+vim.lsp.enable("html")
