@@ -1,11 +1,11 @@
 return {
   "linux-cultist/venv-selector.nvim",
-  lazy = false,
-  branch = "regexp",
+  ft = "python", -- Load when opening Python files
   keys = {
-    { "<leader>vp", "<cmd>VenvSelect<cr>" },
+    { "<leader>vp", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
   },
-  ---@type venv-selector.Config
-  opts = {
+  opts = { -- this can be an empty lua table - just showing below for clarity.
+    search = {}, -- if you add your own searches, they go here.
+    options = {} -- if you add plugin options, they go here.
   },
 }
