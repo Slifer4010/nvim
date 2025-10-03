@@ -1,5 +1,5 @@
 return {
-	on_init = {
+	init_options = {
 		configurationSection = { "html", "css", "javascript" },
 		embeddedLanguages = {
 			css = true,

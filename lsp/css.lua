@@ -1,5 +1,5 @@
 return {
-	on_init = {
+	init_options = {
 		provideFormatter = true,
 	},
 	cmd = { "vscode-css-language-server", "--stdio" },
