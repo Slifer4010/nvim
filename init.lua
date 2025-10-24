@@ -1,6 +1,7 @@
 require("core.options")
 require("core.autocmds")
 require("core.diagnostic")
+require("core.clipboard")
 require("core.lazy")
 require("core.keymaps")
 require("core.commands")

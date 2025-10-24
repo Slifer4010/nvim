@@ -22,18 +22,6 @@ local opt = vim.opt
 g.mapleader = " "
 g.maplocalleader = " "
 g.snacks_animate = true
-g.clipboard = {
-  name = "wl-clipboard",
-  copy = {
-    ["+"] = "wl-copy",
-    ["*"] = "wl-copy",
-  },
-  paste = {
-    ["+"] = "wl-paste --no-newline",
-    ["*"] = "wl-paste --no-newline",
-  },
-}
-
 opt.autowrite = true
 opt.autochdir = true
 opt.clipboard = "unnamedplus"
