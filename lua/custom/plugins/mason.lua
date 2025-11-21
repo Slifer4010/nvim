@@ -1,39 +1,29 @@
 return {
-	"mason-org/mason.nvim",
-	dependencies = {
-		{ "mason-org/mason-lspconfig.nvim" },
-		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-	},
-	config = function()
-		require("mason").setup()
-		local ensure_installed = {}
-		vim.list_extend(ensure_installed, {
-			"stylua",
-			"prettier",
-			"prettierd",
-			"black",
-      "pyright",
-			"shfmt",
-			"beautysh",
-			"jq",
-			"latexindent",
-      "htmlhint",
-      "stylelint",
-		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+  "mason-org/mason.nvim",
+  dependencies = {
+    "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+  },
+  config = function()
+    require("mason").setup()
 
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"bashls",
-				"pyright",
-				"ruff",
-				"ltex",
-				"texlab",
-        "html",
-        "astro",
-        "cssls",
-			},
-		})
-	end,
+    local languages = require("core.languages")
+
+    local lsp = {}
+    local formatters = {}
+
+    -- Extraer todas las herramientas del archivo tools
+    for _, entry in pairs(languages) do
+      vim.list_extend(lsp, entry.lsp or {})
+      vim.list_extend(formatters, entry.formatters or {})
+    end
+
+    require("mason-lspconfig").setup({
+      ensure_installed = lsp,
+    })
+
+    require("mason-tool-installer").setup({
+      ensure_installed = formatters,
+    })
+  end,
 }

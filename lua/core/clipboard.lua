@@ -27,6 +27,5 @@ elseif os.getenv("DISPLAY") then
   }
 
 else
-  vim.notify("⚠️ No se detectó Wayland ni X11: deshabilitando integración del portapapeles", vim.log.levels.WARN)
+  vim.notify("No se detectó Wayland ni X11: deshabilitando integración del portapapeles", vim.log.levels.WARN)
 end
-
