@@ -57,8 +57,8 @@ vim.keymap.set("n", "<A-down>", "<C-w>j", { desc = "Go to lower window" })
 vim.keymap.set("n", "<A-up>", "<C-w>k", { desc = "Go to upper window" })
 vim.keymap.set("n", "<A-right>", "<C-w>l", { desc = "Go to right window" })
 
-vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { silent = true, desc = "Move down" })
 -- Move Lines
+vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { silent = true, desc = "Move down" })
 vim.keymap.set("n", "<A-k>", ":m .-2<cr>==", { silent = true, desc = "Move up" })
 vim.keymap.set("i", "<A-j>", "<esc>:m .+1<cr>==gi", { silent = true, desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<esc>:m .-2<cr>==gi", { silent = true, desc = "Move up" })
