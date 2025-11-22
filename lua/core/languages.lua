@@ -1,47 +1,47 @@
 return {
   lua = {
     lsp = { "lua_ls" },
-    formatter = { "stylua", lsp_format = "fallback" },
+    formatters = { "stylua", lsp_format = "fallback" },
   },
 
   json = {
     lsp = { "jsonls" },
-    formatter = { "jq" },
+    formatters = { "jq" },
   },
 
   jsonc = {
-    lsp = { "biome" },
-    formatter = { "biome" },
+    lsp = { "jsonls" },
+    formatters = { "biome" },
   },
 
   python = {
     lsp = { "pyright" },
-    formatter = { "black" }
+    formatters = { "black" }
   },
 
   tex = {
     lsp = { "texlab", "ltex" },
-    formatter = { "latexindent" }
+    formatters = { "latexindent" }
   },
 
   html = {
     lsp = { "html" },
-    formatter = { "prettier" }
+    formatters = { "prettier" }
   },
 
   css = {
     lsp = { "cssls" },
-    formatter = { "prettier" }
+    formatters = { "prettier" }
   },
 
   astro = {
     lsp = { "astro" },
-    formatter = { "prettier" }
+    formatters = { "prettier" }
   },
 
   bash = {
     lsp = { "bashls" },
-    formatter = { "beautysh" }
+    formatters = { "beautysh" }
   },
 
 }

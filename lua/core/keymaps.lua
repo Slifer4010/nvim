@@ -83,9 +83,6 @@ vim.keymap.set({ "n", "v", "s" }, "<C-s>", ":w<cr>", { silent = true, desc = "Sa
 vim.keymap.set({ "n", "v", "s" }, "<C-q>", ":wq<cr>", { silent = true, desc = "Save file" })
 
 -- Latex keymaps
---Enable/Disable ltex
-vim.keymap.set("n", "<leader>dt", ":lua require('config.utils').toggle_ltex()<cr>", { remap = true, silent = true })
-
 -- Toggle the auto-processing with VimTex
 vim.keymap.set("n", "<leader>vc", ":VimtexCompile<cr>", { silent = true })
 -- Clean with VimTex

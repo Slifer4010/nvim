@@ -12,7 +12,6 @@ return {
     local lsp = {}
     local formatters = {}
 
-    -- Extraer todas las herramientas del archivo tools
     for _, entry in pairs(languages) do
       vim.list_extend(lsp, entry.lsp or {})
       vim.list_extend(formatters, entry.formatters or {})
