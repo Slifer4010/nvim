@@ -23,17 +23,4 @@ function M.empty:draw(default_highlight)
 	return self.status
 end
 
-function M.get_venv_name()
-  local venv = os.getenv("VIRTUAL_ENV") or vim.g.python3_host_prog
-  if venv then
-    local parts = vim.split(venv, "/")
-    return "󰌠 " .. parts[#parts - 1]
-  end
-  return ""
-end
-
-function M.has_venv()
-  return os.getenv("VIRTUAL_ENV") or vim.g.python3_host_prog
-end
-
 return M

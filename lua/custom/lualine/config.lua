@@ -25,19 +25,7 @@ require("lualine").setup({
 			{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " } },
 		},
 		lualine_y = {
-			{
-				function()
-					return utils.get_venv_name()
-				end,
-				separator = { left = "", right = "" },
-			},
-			{
-				"filetype",
-				cond = function()
-					return not utils.has_venv()
-				end,
-				separator = { left = "", right = "" },
-			},
+			{ "filetype", separator = { left = "", right = "" } },
 		},
 		lualine_z = { { "progress", icon = " " } },
 	},
