@@ -10,10 +10,10 @@ require("lualine").setup({
 		lualine_a = { { "mode", upper = true, icon = "" } },
 		lualine_b = {
 			{ utils.empty },
-			{ "filename", file_status = true, path = 0, separator = { left = "", right = "" } },
+			-- { "filename", file_status = true, path = 0, separator = { left = "", right = "" } },
+			{ "branch", icon = "", padding = { left = 1, right = 1 }, separator = { left = "", right = "" } },
 		},
 		lualine_c = {
-			{ "branch", icon = "", padding = { left = 1, right = 0 } },
 			{
 				"diff",
 				symbols = { added = "  ", modified = "  ", removed = "  " },
