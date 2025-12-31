@@ -11,7 +11,6 @@ local hop = require('hop')
 local directions = require('hop.hint').HintDirection
 
 vim.keymap.set("n", "<leader>rr", ":source %<CR>", { silent = true, desc = "Source de current file" })
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { silent = true, desc = "Close current buffer" })
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", { silent = true, desc = "Previous buffer" })
 

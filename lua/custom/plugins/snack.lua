@@ -40,7 +40,7 @@ return {
         end
 
         -- Pickers
-        map("<leader>ff", function() Snacks.picker.smart({ multi = { "buffers", "files" } }) end, "Find Files")
+        map("<leader>ff", function() Snacks.picker.files() end, "Find Files")
         map("<leader>fb", function() Snacks.picker.buffers() end, "Find Buffers")
         map("<leader>fg", function() Snacks.picker.grep() end, "Find Grep")
         map("<leader>fh", function() Snacks.picker.help() end, "Find Help")
