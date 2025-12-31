@@ -27,7 +27,7 @@ require("lualine").setup({
 		lualine_y = {
 			{ "filetype", separator = { left = "", right = "" } },
 		},
-		lualine_z = { { "progress", icon = " " } },
+		lualine_z = { "location" },
 	},
 	inactive_winbar = {
 		lualine_c = { "filename" },
