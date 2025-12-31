@@ -19,9 +19,6 @@ return {
 				end,
 			},
 			{ "echasnovski/mini.icons", opts = {} },
-			{
-				"Exafunction/codeium.nvim",
-			},
 			{ "erooke/blink-cmp-latex" },
 		},
 
@@ -66,6 +63,9 @@ return {
 							insert_command = true,
 						},
 					},
+				},
+				per_filetype = {
+					codecompanion = { "codecompanion" },
 				},
 			},
 
