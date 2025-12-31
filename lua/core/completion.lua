@@ -53,9 +53,8 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "codeium", "latex" },
+				default = { "lsp", "path", "snippets", "buffer", "latex" },
 				providers = {
-					codeium = { name = "Codeium", module = "codeium.blink", async = true },
 					latex = {
 						name = "Latex",
 						module = "blink-cmp-latex",
